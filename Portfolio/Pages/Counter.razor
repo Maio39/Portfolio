@@ -6,7 +6,13 @@
 
 <p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<FluentButton Appearance="@Appearance.Accent" OnClick="IncrementCount">Click Me</FluentButton>
+
+<FluentCard Width="350px" Height="250px">
+    <h2>Hello World!</h2>
+    <FluentIcon Value="@(new Icons.Regular.Size24.Save())" />
+    <FluentIcon Value="@(Icon.FromImageUrl("/Blazor.png"))" />
+</FluentCard>
 
 @code {
     private int currentCount = 0;
