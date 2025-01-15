@@ -30,8 +30,10 @@ export function initializeGlobe(canvasId) {
     controls.enableDamping = true; // Abilita l'inerzia
     controls.dampingFactor = 0.25;
     controls.enableZoom = true; // Abilita lo zoom
+    controls.minDistance = 6; // Imposta la distanza minima di zoom
+    controls.maxDistance = 15; // Imposta la distanza massima di zoom
 
-    camera.position.z = 15;
+    camera.position.z = 9;
 
     function animate() {
         requestAnimationFrame(animate);
