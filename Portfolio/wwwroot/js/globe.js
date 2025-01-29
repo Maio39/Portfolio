@@ -43,14 +43,18 @@ export function initializeGlobe(canvasId) {
 
         void main() {
             float intensity = dot(normalize(vNormal), normalize(lightDirection));
-            intensity = smoothstep(-0.2, 0.2, intensity);
-            
-            vec4 dayColor = texture2D(dayMap, vUv) * 1.3; // ☀️ Aumenta luminosità texture giorno
-            vec4 nightColor = texture2D(nightMap, vUv) * 1.7; // 🌙 Schiarisce la texture notte
-            
+
+            // 📌 Transizione più morbida con gamma più ampia
+            intensity = smoothstep(-0.4, 0.3, intensity);
+
+            vec4 dayColor = texture2D(dayMap, vUv) * 1.3; // ☀️ Schiarisce il giorno
+            vec4 nightColor = texture2D(nightMap, vUv) * 1.5; // 🌙 Schiarisce la notte
+
+            // 🌆 Fonde giorno e notte con una transizione più graduale
             gl_FragColor = mix(nightColor, dayColor, intensity);
         }
     `;
+
 
     const vertexShader = `
         varying vec2 vUv;
@@ -77,6 +81,31 @@ export function initializeGlobe(canvasId) {
     const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
     globe = new THREE.Mesh(sphereGeometry, globeMaterial);
     scene.add(globe);
+
+    // ☁️ Atmosfera (dopo il globo)
+    const atmosphereMaterial = new THREE.ShaderMaterial({
+        vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+            vNormal = normalize(normalMatrix * normal);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `,
+        fragmentShader: `
+        varying vec3 vNormal;
+        void main() {
+            float intensity = pow(0.5 - dot(vNormal, vec3(0,0,1)), 4.0);
+            gl_FragColor = vec4(0.2, 0.6, 1.0, intensity * 0.8);
+        }
+    `,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide,
+        transparent: true
+    });
+
+    // 🌌 Creazione dell'atmosfera (leggermente più grande del globo)
+    const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(1.1, 64, 64), atmosphereMaterial);
+    scene.add(atmosphere);
 
     // Renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById(canvasId) });
