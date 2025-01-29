@@ -3,7 +3,7 @@ import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/thr
 // Importa OrbitControls per consentire il controllo dell'orbita della camera
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 // Dichiarazione delle variabili globali
-let camera, scene, renderer, controls, globe, clock;
+let camera, scene, renderer, controls, globe, clock, sun, targetSunPosition;
 
 export function initializeGlobe(canvasId) {
     // Funzione per inizializzare il globo
@@ -13,18 +13,27 @@ export function initializeGlobe(canvasId) {
     clock = new THREE.Clock();                                  // Crea un orologio per tenere traccia del tempo
 
     // Crea una camera prospettica con un campo visivo di 25 gradi, rapporto d'aspetto basato sul canvas, e piani di clipping vicino e lontano
-    camera = new THREE.PerspectiveCamera( 25, canvas.clientWidth / canvas.clientHeight, 0.1, 100 );
-    camera.position.set( 4.5, 2, 3 );                           // Imposta la posizione iniziale della camera
+    camera = new THREE.PerspectiveCamera(25, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+    camera.position.set(4.5, 2, 3);                           // Imposta la posizione iniziale della camera
     scene = new THREE.Scene();                                  // Crea una nuova scena
 
-    // sun
-    const sun = new THREE.DirectionalLight( '#ffffff', 2 );             // Crea una luce direzionale per simulare il sole
-    sun.position.set( 0, 0, 3 );                                        // Imposta la posizione della luce solare
-    scene.add( sun );                                                   // Aggiunge la luce solare alla scena
+    //// sun
+    //const sun = new THREE.DirectionalLight( '#ffffff', 2 );             // Crea una luce direzionale per simulare il sole
+    //sun.position.set( 0, 0, 3 );                                        // Imposta la posizione della luce solare
+    //scene.add(sun);                                                   // Aggiunge la luce solare alla scena
+
+    // Modifica la creazione della luce
+    sun = new THREE.DirectionalLight('#ffffff', 2.5);
+    sun.position.set(1, 0, 0); // Posizione iniziale del sole
+
+    // All'interno di initializeGlobe, dopo aver creato la luce:
+    calculateSunPosition();
+    sun.position.copy(targetSunPosition);
+    scene.add(sun);
 
     // uniforms
-    const atmosphereDayColor = new THREE.Color( '#4db2ff' );            // Colore dell'atmosfera durante il giorno
-    const atmosphereTwilightColor = new THREE.Color( '#bc490b' );       // Colore dell'atmosfera durante il crepuscolo
+    const atmosphereDayColor = new THREE.Color('#4db2ff');            // Colore dell'atmosfera durante il giorno
+    const atmosphereTwilightColor = new THREE.Color('#bc490b');       // Colore dell'atmosfera durante il crepuscolo
     const roughnessLow = 0.25;                                          // Valore di rugosità basso
     const roughnessHigh = 0.35;                                         // Valore di rugosità alto
 
@@ -40,7 +49,7 @@ export function initializeGlobe(canvasId) {
     );
     dayTexture.colorSpace = THREE.SRGBColorSpace;       // Imposta lo spazio colore della texture
     dayTexture.anisotropy = 8;                          // Imposta l'anisotropia della texture per migliorare la qualità
-    
+
     // Carica la texture della Terra di notte
     const nightTexture = textureLoader.load(
         'images/8k_earth_nightmap.jpg',
@@ -66,53 +75,66 @@ export function initializeGlobe(canvasId) {
             dayTexture: { value: dayTexture },
             nightTexture: { value: nightTexture },
             bumpRoughnessCloudsTexture: { value: bumpRoughnessCloudsTexture },
-            lightIntensity: { value: 0.5 } // Intensità della luce per schiarire la texture notturna
+            sunPosition: { value: new THREE.Vector3() }, // Nuovo uniform
+            time: { value: 0 } // Per effetti dinamici
         },
         vertexShader: `
-            varying vec2 vUv;
-            varying vec3 vNormal;
+        varying vec2 vUv;
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
 
-            void main() {
-                vUv = uv;
-                vNormal = normalize(normalMatrix * normal); // Normale trasformata
-
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-            }
-        `,
+        void main() {
+            vUv = uv;
+            vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+            vWorldPosition = worldPosition.xyz;
+            vWorldNormal = normalize(normalMatrix * normal);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `,
         fragmentShader: `
-            uniform sampler2D dayTexture;
-            uniform sampler2D nightTexture;
-            uniform sampler2D bumpRoughnessCloudsTexture;
-            uniform float lightIntensity;
+        uniform sampler2D dayTexture;
+        uniform sampler2D nightTexture;
+        uniform sampler2D bumpRoughnessCloudsTexture;
+        uniform vec3 sunPosition;
+        uniform float time;
 
-            varying vec2 vUv;
-            varying vec3 vNormal;
+        varying vec2 vUv;
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPosition;
 
-            void main() {
-                // Ottieni i colori dalle texture
-                vec4 dayColor = texture2D(dayTexture, vUv);
-                vec4 nightColor = texture2D(nightTexture, vUv);
-                vec4 clouds = texture2D(bumpRoughnessCloudsTexture, vUv);
+        void main() {
+            // Calcola la direzione della luce
+            vec3 lightDir = normalize(sunPosition - vWorldPosition);
+            
+            // Intensità della luce
+            vec3 globeNormal = normalize(vWorldPosition);
+            float diff = dot(globeNormal, normalize(sunPosition));
+            diff = smoothstep(-0.1, 0.1, diff);
 
-                // Simula la direzione della luce dal lato positivo dell'asse Z
-                float lightingFactor = dot(normalize(vNormal), vec3(0.0, 0.0, 1.0));
-                lightingFactor = clamp(lightingFactor, 0.0, 1.0);  // Mantiene il valore tra 0 e 1
-
-                // Miscela tra giorno e notte in base alla luce
-                vec4 finalColor = mix(nightColor, dayColor, lightingFactor);
-
-                // Aggiungi le nuvole
-                finalColor.rgb += clouds.rgb * 0.2;
-
-                gl_FragColor = finalColor;
-            }
-        `
+            // Texture mixing
+            vec4 dayColor = texture2D(dayTexture, vUv);
+            vec4 nightColor = texture2D(nightTexture, vUv);
+            vec4 clouds = texture2D(bumpRoughnessCloudsTexture, vUv);
+            
+            // Effetto luci notturne
+            float nightLights = smoothstep(0.7, 0.9, nightColor.r);
+            nightColor.rgb += nightLights * vec3(1.0, 0.9, 0.5) * (1.0 - diff);
+            
+            // Mix finale
+            vec4 finalColor = mix(nightColor, dayColor, diff);
+            
+            // Aggiungi nuvole con effetto giorno/notte
+            finalColor.rgb += clouds.rgb * 0.15 * (diff + 0.2);
+            
+            gl_FragColor = finalColor;
+        }
+    `
     });
 
     const globeGeometry = new THREE.SphereGeometry(1, 32, 32);  // Crea una geometria sferica per il globo con raggio 1 e 32 segmenti
     globe = new THREE.Mesh(globeGeometry, globeMaterial);       // Crea una mesh combinando la geometria del globo e il materiale
     scene.add(globe);                                           // Aggiunge il globo alla scena
-    
+
     // Configura OrbitControls
     controls = new OrbitControls(camera, renderer.domElement);  // Crea i controlli dell'orbita per la camera
     controls.enableDamping = true;                              // Abilita lo smorzamento dei controlli
@@ -136,23 +158,53 @@ function onWindowResize() {                                     // Funzione chia
 //    renderer.render(scene, camera);         // Renderizza la scena dal punto di vista della camera
 //}
 
+// Aggiungi questa funzione per calcolare la rotazione iniziale in base all'ora
+function calculateInitialRotation() {
+    const now = new Date();
+    const utcHours = now.getUTCHours() + now.getUTCMinutes() / 60;
+
+    // La terra ruota 360 gradi in 24 ore -> 15 gradi all'ora
+    // Sottraiamo 90 gradi per allineare con la texture (posizione 0 è a mezzanotte UTC)
+    const targetRotation = (utcHours * -15 + 90) * (Math.PI / 180);
+
+    return targetRotation;
+}
+
+// Modifica la funzione animate così:
 function animate() {
     requestAnimationFrame(animate);
     const delta = clock.getDelta();
-    globe.rotation.y += delta * 0.025;
 
-    // Definisce la direzione della luce in base alla rotazione del globo
-    const lightDirection = new THREE.Vector3(0, 0, 1);
-    lightDirection.applyQuaternion(globe.quaternion);
-    const lightIntensity = Math.max(0, lightDirection.z); // Più è vicino a 1, più è illuminato
+    calculateSunPosition();
 
-    // Aggiorna lo shader con l'intensità della luce
-    globe.material.uniforms.lightIntensity.value = lightIntensity;
-    globe.material.uniforms.lightIntensity.needsUpdate = true;
+    // Aggiorna la posizione del sole
+    sun.position.copy(targetSunPosition);
+    globe.material.uniforms.sunPosition.value.copy(sun.position);
+    globe.material.uniforms.time.value = performance.now() / 1000;
 
     controls.update();
     renderer.render(scene, camera);
 }
 
+// Aggiungi questa funzione per calcolare la posizione del sole
+function calculateSunPosition() {
+    if (!targetSunPosition) {
+        targetSunPosition = new THREE.Vector3();
+    }
+
+    const now = new Date();
+    const utcHours = now.getUTCHours() + now.getUTCMinutes() / 60;
+
+    // La Terra ruota di 360° in 24 ore -> 15° all'ora
+    // Spostiamo di 180° (π radianti) per allineare correttamente la luce
+    const sunAngle = ((utcHours / 24) * Math.PI * 2) - Math.PI;
+
+    // Posizioniamo il sole in modo che illumini correttamente il globo
+    targetSunPosition.set(
+        Math.cos(sunAngle) * 5,
+        Math.sin(23.44 * (Math.PI / 180)) * 5, // Inclinazione assiale della Terra (23.44°)
+        Math.sin(sunAngle) * 5
+    );
+}
 
 window.initializeGlobe = initializeGlobe;   // Esporta la funzione initializeGlobe nel contesto globale
