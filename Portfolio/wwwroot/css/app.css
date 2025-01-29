@@ -1,5 +1,10 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita gli scroll */
+    width: 100%;
+    height: 100%;
 }
 
 h1:focus {
@@ -114,5 +119,14 @@ code {
     left: 0;
     width: 100%;
     height: 100%;
-    padding-bottom: 1.1rem;
+}
+
+canvas {
+    display: block; /* Rimuove margini indesiderati */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: unset; /* Assicura che non venga forzato un rapporto */
 }
