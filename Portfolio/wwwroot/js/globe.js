@@ -32,10 +32,16 @@ export function initializeGlobe(canvasId) {
     nightTexture.colorSpace = THREE.SRGBColorSpace;
     nightTexture.anisotropy = 8;
 
+    const bumpRoughnessCloudsTexture = textureLoader.load('images/earth_bump_roughness_clouds_4096.jpg');
+    bumpRoughnessCloudsTexture.anisotropy = 8;
+    bumpRoughnessCloudsTexture.colorSpace = THREE.SRGBColorSpace;
+
+
     // 📌 Shader migliorato per maggiore luminosità
     const fragmentShader = `
         uniform sampler2D dayMap;
         uniform sampler2D nightMap;
+        uniform sampler2D bumpRoughnessCloudsMap;
         uniform vec3 lightDirection;
 
         varying vec2 vUv;
@@ -43,17 +49,23 @@ export function initializeGlobe(canvasId) {
 
         void main() {
             float intensity = dot(normalize(vNormal), normalize(lightDirection));
+            intensity = smoothstep(-0.2, 0.2, intensity);
+        
+            vec4 dayColor = texture2D(dayMap, vUv) * 1.3;
+            vec4 nightColor = texture2D(nightMap, vUv) * 1.7;
+        
+            // 🌥️ Effetto Nuvole con Bump
+            vec4 bumpClouds = texture2D(bumpRoughnessCloudsMap, vUv);
+            float cloudsStrength = smoothstep(0.2, 1.0, bumpClouds.b); 
+        
+            // 🌍 Mix Giorno, Notte e Nuvole
+            vec3 finalColor = mix(nightColor.rgb, dayColor.rgb, intensity);
+            finalColor = mix(finalColor, vec3(1.0), cloudsStrength * 0.6); // Rende le nuvole più bianche
 
-            // 📌 Transizione più morbida con gamma più ampia
-            intensity = smoothstep(-0.4, 0.3, intensity);
-
-            vec4 dayColor = texture2D(dayMap, vUv) * 1.3; // ☀️ Schiarisce il giorno
-            vec4 nightColor = texture2D(nightMap, vUv) * 1.5; // 🌙 Schiarisce la notte
-
-            // 🌆 Fonde giorno e notte con una transizione più graduale
-            gl_FragColor = mix(nightColor, dayColor, intensity);
+            gl_FragColor = vec4(finalColor, 1.0);
         }
     `;
+
 
 
     const vertexShader = `
@@ -71,11 +83,13 @@ export function initializeGlobe(canvasId) {
         uniforms: {
             dayMap: { value: dayTexture },
             nightMap: { value: nightTexture },
+            bumpRoughnessCloudsMap: { value: bumpRoughnessCloudsTexture }, // 🌥️ Nuvole con Bump
             lightDirection: { value: sun.position.clone().normalize() }
         },
         vertexShader,
-        fragmentShader
+        fragmentShader,
     });
+
 
     // 🌍 Creazione Globo
     const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
