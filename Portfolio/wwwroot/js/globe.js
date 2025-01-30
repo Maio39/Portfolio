@@ -137,8 +137,15 @@ export function initializeGlobe(canvasId) {
     // Controls (OrbitControls per navigazione)
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.minDistance = 0.1;
-    controls.maxDistance = 50;
+    controls.dampingFactor = 0.05;  // Rende la rotazione più fluida
+    controls.enablePan = false;  // ❌ Blocca lo spostamento laterale
+    controls.minDistance = 1.1;  // Impedisce di avvicinarsi troppo
+    controls.maxDistance = 10;  // Impedisce di allontanarsi troppo
+    controls.target.set(0, 0, 0);  // 🔄 Mantiene la rotazione attorno al centro del globo
+    controls.minPolarAngle = Math.PI / 4;  // Evita di guardare troppo in basso
+    controls.maxPolarAngle = Math.PI - Math.PI / 4;  // Evita di guardare troppo in alto
+    controls.update();
+
 
     // Window resize event
     window.addEventListener('resize', () => {
