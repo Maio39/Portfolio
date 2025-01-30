@@ -158,6 +158,26 @@ export function initializeGlobe(canvasId) {
     const gui = new GUI();
     gui.add(sun, 'intensity', 0, 5, 0.1).name('Sun Intensity');
     gui.add(ambientLight, 'intensity', 0, 3, 0.1).name('Ambient Light');
+    // 🌍 Oggetto per i parametri di rotazione
+    const globeRotation = {
+        longitude: -65, // Valore iniziale per centrare l'Italia
+        latitude: -5
+    };
+
+    // ✏️ Funzione per aggiornare la rotazione
+    function updateGlobeRotation() {
+        globe.rotation.y = globeRotation.longitude * (Math.PI / 180); // Longitudine
+        globe.rotation.x = globeRotation.latitude * (Math.PI / 180); // Latitudine
+    }
+
+    // 🎛 Aggiungi un folder per la rotazione del globo
+    const globeFolder = gui.addFolder("Globe Rotation");
+    globeFolder.add(globeRotation, "longitude", -180, 180, 0.1).name("Longitude").onChange(updateGlobeRotation);
+    globeFolder.add(globeRotation, "latitude", -90, 90, 0.1).name("Latitude").onChange(updateGlobeRotation);
+    globeFolder.open(); // Apri il folder per default
+
+    // 🔄 Imposta la rotazione iniziale
+    updateGlobeRotation();
 
     // Animation loop
     function animate() {
