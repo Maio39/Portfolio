@@ -2,6 +2,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GUI } from "https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm";
+import { createPlanets } from "./planets.js";
+import { createSatellites } from "./satellites.js";
 
 export function initializeGlobe(canvasId) {
     let camera, scene, renderer, controls, globe, clock;
@@ -134,6 +136,10 @@ export function initializeGlobe(canvasId) {
         camera.updateProjectionMatrix();
     });
 
+    // Aggiungi satelliti e pianeti
+    const animatePlanets = createPlanets(scene); // Aggiunge pianeti in orbita
+    //createSatellites(scene);
+
     // Controls (OrbitControls per navigazione)
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -183,6 +189,7 @@ export function initializeGlobe(canvasId) {
     function animate() {
         const delta = clock.getDelta();
         globe.rotation.y += delta * 0.025;
+        animatePlanets();  // Animazione dei pianeti in orbita
         controls.update();
         renderer.render(scene, camera);
     }
