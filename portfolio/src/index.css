@@ -1,5 +1,14 @@
-@import "tailwindcss";
 @import url('https://fonts.cdnfonts.com/css/general-sans');
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #010103;
+  font-family: 'General Sans', sans-serif;
+}
 
 @theme {
   /* Colori */
@@ -20,24 +29,22 @@
   --bg-terminal: url('/assets/terminal.png');
 }
 
-@layer utilities {
-  .arrow-gradient {
-    background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.1) 10%,
-      rgba(255, 255, 255, 0.000025) 50%,
-      rgba(255, 255, 255, 0.000025) 50%,
-      rgba(255, 255, 255, 0.025) 100%
-    );
-  }
+@utility arrow-gradient {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1) 10%,
+    rgba(255, 255, 255, 0.000025) 50%,
+    rgba(255, 255, 255, 0.000025) 50%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+}
 
-  .waving-hand {
-    animation-name: wave-animation;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    transform-origin: 70% 70%;
-    display: inline-block;
-  }
+@utility waving-hand {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
 }
 
 @utility c-space {
@@ -109,7 +116,7 @@
 }
 
 @utility tech-logo {
-  @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
+  @apply w-10 h-10 rounded-md p-2 bg-neutral-100 opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
 }
 
 /* clients section */
@@ -118,7 +125,7 @@
 }
 
 @utility client-review {
-  @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50;
+  @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 opacity-50;
 }
 
 @utility client-content {
