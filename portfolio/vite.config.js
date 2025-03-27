@@ -12,4 +12,5 @@ export default defineConfig({
         host: '0.0.0.0',  // Permette connessioni da qualsiasi IP
         port: 5173,       // Puoi cambiare la porta se vuoi
     },
+    base: '/Portfolio/' // <-- Inserisci qui il nome del tuo repo GitHub
 })
