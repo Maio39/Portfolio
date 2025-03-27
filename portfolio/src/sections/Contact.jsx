@@ -8,7 +8,9 @@ function Contact() {
         email: '',
         message: ''
     })
-    const handleChange = ({ target: { name, value }}) => {}
+    const handleChange = ({ target: { name, value }}) => {
+        setForm({ ...form, [name]: value })
+    }
     const handleSubmit = () => {}
   return (
     <section className="c-space my-20">
