@@ -15,7 +15,7 @@ function Contact() {
   return (
     <section className="c-space my-20">
         <div className="relative min-h-screen flex items-center justify-center flex-col">
-            <img src="/assets/terminal.png" alt="terminal background" className="absolute inset-0 min-h-screen" />
+            <img src="assets/terminal.png" alt="terminal background" className="absolute inset-0 min-h-screen" />
             <div className="contact-container">
                 <h3 className="head-text">Let's Talk</h3>
                 <p className="text-lg text-white-600 mt-3">
@@ -38,7 +38,7 @@ function Contact() {
                     <button className="field-btn cursor-pointer" disabled={loading} type="submit">
                         {loading ? 'Sending...' : 'Send Message'}
 
-                        <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+                        <img src="assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
                     </button>
                 </form>
             </div>

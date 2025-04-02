@@ -4,13 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/Portfolio/', // <-- Inserisci qui il nome del tuo repo GitHub
     plugins: [
         tailwindcss(),
         react()
     ],
-    server: {
-        host: '0.0.0.0',  // Permette connessioni da qualsiasi IP
-        port: 5173,       // Puoi cambiare la porta se vuoi
-    },
-    //base: '/Portfolio/' // <-- Inserisci qui il nome del tuo repo GitHub
+    // server: {
+    //     host: '0.0.0.0',  // Permette connessioni da qualsiasi IP
+    //     port: 5173,       // Puoi cambiare la porta se vuoi
+    // },
 })
