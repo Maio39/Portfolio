@@ -14,9 +14,10 @@ const Footer = () => {
           <div className="social-icon">
             <img src="assets/twitter.svg" alt="twitter" className="w-1/2 h-1/2" />
           </div>
-          <div className="social-icon">
+          <a href="https://www.instagram.com/_.maiermarco._?igsh=ZHo2d2x6dG92NWZu&utm_source=qr" 
+             target="_blank" rel="noopener noreferrer" className="social-icon">
             <img src="assets/instagram.svg" alt="instagram" className="w-1/2 h-1/2" />
-          </div>
+          </a>
         </div>
   
         <p className="text-white-500">© 2024 Adrian Hajdin. All rights reserved.</p>
