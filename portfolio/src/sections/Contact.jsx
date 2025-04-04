@@ -11,7 +11,22 @@ function Contact() {
     const handleChange = ({ target: { name, value }}) => {
         setForm({ ...form, [name]: value })
     }
-    const handleSubmit = () => {}
+    const handleSubmit = (e) => {
+        e.preventDefault()
+      
+        const { name, email, message } = form
+      
+        const mailtoLink = `mailto:your@email.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        )}`
+      
+        // Resetta il form
+        setForm({ name: '', email: '', message: '' })
+      
+        // Apre l'email
+        window.location.href = mailtoLink
+      }
+      
   return (
     <section className="c-space my-20" id="contact">
         <div className="relative min-h-screen flex items-center justify-center flex-col">
