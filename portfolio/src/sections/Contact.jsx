@@ -16,7 +16,7 @@ function Contact() {
       
         const { name, email, message } = form
       
-        const mailtoLink = `mailto:your@email.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(
+        const mailtoLink = `mailto:marco.maier@outlook.it?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(
           `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
         )}`
       
