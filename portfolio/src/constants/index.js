@@ -74,23 +74,8 @@ export const navLinks = [
       tags: [
         {
           id: 1,
-          name: 'React.js',
-          path: 'assets/react.svg',
-        },
-        {
-          id: 2,
           name: 'Badge',
           path: 'assets/CyberOpsAssoc.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: 'assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: 'assets/framer.png',
         },
       ],
     },
@@ -111,23 +96,8 @@ export const navLinks = [
       tags: [
         {
           id: 1,
-          name: 'React.js',
-          path: 'assets/react.svg',
-        },
-        {
-          id: 2,
           name: 'Badge',
           path: 'assets/badgeTag.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: 'assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: 'assets/framer.png',
         },
       ],
     },
@@ -148,23 +118,8 @@ export const navLinks = [
       tags: [
         {
           id: 1,
-          name: 'React.js',
-          path: 'assets/react.svg',
-        },
-        {
-          id: 2,
           name: 'Badge',
           path: 'assets/badgeCCNA.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: 'assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: 'assets/framer.png',
         },
       ],
     },
