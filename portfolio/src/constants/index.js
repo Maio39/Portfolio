@@ -63,7 +63,7 @@ export const navLinks = [
       subdesc:
         'You will learn how SOC teams detect and respond to security incidents. You will also explore the intricacies of security concepts, monitoring, host-based analysis, network intrusion analysis, and security policy procedures. This course seamlessly aligns with the National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce framework to support consistent language for cybersecurity education, training, and workforce development.',
       href: 'https://www.credly.com/badges/3c57aa86-476c-42bb-b843-a681c9d9dbf5/linked_in_profile',
-      texture: 'textures/project/project3.mp4',
+      texture: 'textures/project/CyberopsVideo.mp4',
       logo: 'assets/cisco_logo.jpeg',
       logoStyle: {
         backgroundColor: '#13202F',
@@ -85,7 +85,7 @@ export const navLinks = [
       subdesc:
         '',
       href: 'https://certificates.talentgarden.com/b30242d3-49db-47e3-b939-628649db6ba1',
-      texture: 'textures/project/project1.mp4',
+      texture: 'textures/project/DeepVideo.mp4',
       logo: 'assets/talentGardenLogo.jpeg',
       logoStyle: {
         backgroundColor: '#2A1816',
@@ -107,7 +107,7 @@ export const navLinks = [
       subdesc:
         'Start here with CCNA: Introduction to Networks, the first course in the series. From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, you\'ll develop foundational knowledge and build your networking basics. This course also includes interactive labs and real-world scenarios to help you gain practical experience in building local area networks (LANs), implementing network security measures, and configuring routers and switches.',
       href: 'https://www.credly.com/badges/88030291-c08c-4c25-8de7-591646059dd9/linked_in_profile',
-      texture: 'textures/project/project2.mp4',
+      texture: 'textures/project/CcnaVideo.mp4',
       logo: 'assets/cisco_logo.jpeg',
       logoStyle: {
         backgroundColor: '#13202F',

@@ -27,7 +27,7 @@ const About = () => {
                 </div>
                 <div className='col-span-1 xl:row-span-3'>
                     <div className='grid-container'>
-                        <img src='assets/grid2.png' alt='grid-2' className='w-full sm:h-[276px] h-fit object-contain' />
+                        <img src='assets/stackTech.png' alt='grid-2' className='w-full sm:h-[276px] h-fit object-contain' />
                         <div>
                             <p className='grid-headtext'>Tech Stack</p>
                             <p className='grid-subtext'>I specialize in .NET, SQL, HTML, CSS, Javascript.</p>
