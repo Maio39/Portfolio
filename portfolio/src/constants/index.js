@@ -182,3 +182,21 @@ export const navLinks = [
       animation: 'clapping',
     },
   ];
+
+  export const trips = {
+    rijeka: {
+      title: "Rijeka, Croatia",
+      description: "Bellissimo viaggio sulla costa croata con tramonti mozzafiato.",
+      coords: { lat: 45.3271, lng: 14.4422 },
+      highlights: ["Trsat Castle", "Korzo", "Opatija"],
+      media: ["assets/grid2.png", "assets/grid1.png"]
+    },
+    paris: {
+      title: "Parigi, Francia",
+      description: "Un weekend romantico con vista sulla Torre Eiffel.",
+      coords: { lat: 48.8566, lng: 2.3522 },
+      highlights: ["Shibuya Crossing", "Asakusa", "TeamLab Planets"],
+      media: ["assets/grid3.png", "assets/grid4.png"]
+    }
+    // Aggiungi altri viaggi
+  };
