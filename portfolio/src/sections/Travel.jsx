@@ -38,11 +38,20 @@ const Travel = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  /* 
+  altitude: 3 → globo intero
+  altitude: 1.5 → continente
+  altitude: 0.8 → paese
+  altitude: 0.4 o meno → molto vicino 
+  */
   useEffect(() => {
     if (globeRef.current) {
-      globeRef.current.pointOfView({ lat: 20, lng: 0, altitude: 3 });
+      globeRef.current.pointOfView(
+        { lat: 41.8719, lng: 12.5674, altitude: 0.7 },
+        2000 // durata dell'animazione in ms (opzionale)
+      );
     }
-  }, []);
+  }, []);  
 
   const pins = Object.entries(trips).map(([id, trip]) => ({
     lat: trip.coords.lat,
@@ -93,14 +102,6 @@ const Travel = () => {
     
     return group;
   };
-  
-  useEffect(() => {
-    if (globeRef.current) {
-      // Aggiungi una luce ambientale
-      const light = new THREE.AmbientLight(0xffffff, 1); // Luce bianca con intensità 1
-      globeRef.current.scene().add(light);
-    }
-  }, []);  
 
   return (
     <section id="travel" className="relative w-full h-full">
