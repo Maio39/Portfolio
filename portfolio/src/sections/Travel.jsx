@@ -103,7 +103,7 @@ const Travel = () => {
   }, []);  
 
   return (
-    <section id="travel" className="w-full h-full">
+    <section id="travel" className="relative w-full h-full">
       <p className="head-text">My Travels</p>
 
       <div
@@ -130,7 +130,7 @@ const Travel = () => {
 
       {/* MODALE (come prima) */}
       {selectedId && (
-        <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center z-45 pointer-events-none">
           <div className="relative bg-white/90 backdrop-blur-xl border-4 border-dashed border-[#19a3a3] shadow-2xl max-w-3xl w-full mx-6 p-8 rounded-xl animate-fadeIn pointer-events-auto">
             <button
               className="absolute top-2 right-4 text-black text-xl"
