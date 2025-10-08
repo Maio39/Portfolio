@@ -57,7 +57,7 @@ const ERPShowcase = () => {
                 <div className='relative group'>
                     <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500'></div>
                     <div className='relative border border-black-300 bg-black-200 rounded-2xl overflow-hidden h-[500px]'>
-                        <video controls className="w-full h-full object-cover">
+                        <video controls className="w-full h-full object-contain bg-black">
                             <source src="textures/ErpShowcase/NextERP.mp4" type="video/mp4" />
                         </video>
                     </div>
@@ -66,7 +66,7 @@ const ERPShowcase = () => {
                 {/* Features Section */}
                 <div className='flex flex-col gap-6'>
                     <div className='bg-black-200 border border-black-300 rounded-2xl p-8'>
-                        <h3 className='text-2xl font-bold text-white mb-6'>Perché Scegliere il Nostro ERP?</h3>
+                        <h3 className='text-2xl font-bold text-white mb-6'>Perché Scegliere il Nostro NextERP?</h3>
                         <div className='space-y-4'>
                             {features.map((feature, index) => (
                                 <div 
