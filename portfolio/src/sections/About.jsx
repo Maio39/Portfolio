@@ -13,6 +13,13 @@ const About = () => {
 
     return (
         <section className='c-space my-20' id='about'>
+            <div className='relative mb-12'>
+                <p className='head-text mb-4'>About Me</p>
+                <p className='text-xl text-white-600 max-w-3xl'>
+                    A quick overview of who I am, what I do, and what I love most about coding.
+                </p>
+            </div>
+
             <div className='grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full'>
                 <div className='col-span-1 xl:row-span-3'>
                     <div className='grid-container'>
