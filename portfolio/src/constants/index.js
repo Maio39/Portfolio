@@ -6,7 +6,7 @@ export const navLinks = [
     },
     {
       id: 2,
-      name: 'NextERP',
+      name: 'MaiERP',
       href: '#erp-showcase',
     },
     {
