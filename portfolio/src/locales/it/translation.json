@@ -1,0 +1,61 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Progetti",
+        "about": "Chi Sono",
+        "work": "Esperienza",
+        "contact": "Contatti"
+    },
+    "hero": {
+        "greeting": "Ciao, sono Marco",
+        "tagline": "Questo è il mio Portfolio",
+        "cta": "Lavoriamo insieme"
+    },
+    "about": {
+        "mainTitle": "Chi Sono",
+        "mainDesc": "Uno sviluppatore Full Stack appassionato, specializzato nella creazione di sistemi ERP personalizzati e soluzioni digitali per aiutare le piccole e medie imprese a ottimizzare le operazioni e crescere attraverso la tecnologia.",
+        "profile": {
+            "title": "Ciao, sono Marco",
+            "desc": "Sono uno sviluppatore software con oltre 3 anni di esperienza nel settore tecnologico. Mi concentro sulla progettazione e lo sviluppo di sistemi digitali su misura — dalle piattaforme di gestione ERP agli strumenti aziendali intelligenti — aiutando le aziende a modernizzare e automatizzare il loro flusso di lavoro."
+        },
+        "contact": "Contattami"
+    },
+    "projects": {
+        "title": "I Miei Progetti",
+        "view_details": "Vedi Dettagli"
+    },
+    "certifications": {
+        "title": "Le Mie Certificazioni",
+        "show_credential": "Vedi Credenziale"
+    },
+    "work": {
+        "title": "Esperienza Lavorativa"
+    },
+    "contact": {
+        "title": "Contattami",
+        "name": "Nome Completo",
+        "email": "Indirizzo Email",
+        "message": "Il Tuo Messaggio",
+        "send": "Invia Messaggio",
+        "sending": "Invio in corso..."
+    },
+    "footer": {
+        "rights": "Tutti i diritti riservati."
+    },
+    "maierp": {
+        "hero_title": "MaiERP – La Tua Soluzione ERP Personalizzata",
+        "hero_desc": "Non un software standard, ma la soluzione perfetta per il tuo business. Dalla logistica alla produzione, dall'inventario alle vendite – tutto in un unico posto.",
+        "why_choose": "Perché Scegliere MaiERP?",
+        "ready_transform": "Pronto a Trasformare il Tuo Business?",
+        "book_consultation": "Prenota la tua consulenza gratuita e scopri come MaiERP può trasformare la tua azienda.",
+        "contact_me": "Contattami",
+        "real_impact": "Impatto Reale sul Business",
+        "how_it_works": "Come Funziona",
+        "industries_serve": "Settori che Serviamo",
+        "tech_stack": "Costruito con Tecnologie all'Avanguardia",
+        "tech_desc": "MaiERP combina moderne tecnologie web e architetture collaudate per offrire velocità, affidabilità e scalabilità senza interruzioni.",
+        "about_title": "Su MaiERP",
+        "about_desc": "MaiERP è una piattaforma ERP completamente personalizzabile progettata e sviluppata da Marco Maier, uno sviluppatore full-stack specializzato nella trasformazione digitale per piccole e medie imprese. Ogni funzionalità è progettata per semplificare i processi, ridurre i costi e aumentare le prestazioni operative.",
+        "about_link": "Chi Sono"
+    }
+}

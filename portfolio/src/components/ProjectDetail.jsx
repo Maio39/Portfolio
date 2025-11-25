@@ -1,7 +1,10 @@
 import React from 'react';
 import MaiErpDetails from './MaiErpDetails';
+import { useTranslation } from 'react-i18next';
 
 const ProjectDetail = ({ isOpen, onClose, project }) => {
+    const { t } = useTranslation();
+
     if (!isOpen || !project) return null;
 
     const isMaiErp = project.id === 'maierp';

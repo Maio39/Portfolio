@@ -1,8 +1,10 @@
 import Globe from 'react-globe.gl'
 import Button from '../components/Button.jsx'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   const [hasCopied, setHasCopied] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText('marco.maier@outlook.it')
@@ -13,11 +15,9 @@ const About = () => {
   return (
     <section className='c-space my-20' id='about'>
       <div className='relative mb-12'>
-        <p className='head-text mb-4'>About Me</p>
+        <p className='head-text mb-4'>{t('about.mainTitle')}</p>
         <p className='text-xl text-white-600 max-w-3xl'>
-          A passionate Full Stack Developer specialized in building custom ERP systems and digital
-          solutions to help small and medium-sized companies streamline operations and grow through
-          technology.
+          {t('about.mainDesc')}
         </p>
       </div>
 
@@ -31,11 +31,9 @@ const About = () => {
               className='w-full sm:h-[276px] h-fit object-contain'
             />
             <div>
-              <p className='grid-headtext'>Hi, I'm Marco</p>
+              <p className='grid-headtext'>{t('profile.title')}</p>
               <p className='grid-subtext'>
-                I'm a Software Developer with over 3 years of experience in the tech industry. I focus on designing and developing tailored digital systems — from ERP
-                management platforms to smart business tools — helping companies modernize and
-                automate their workflow.
+                {t('profile.desc')}
               </p>
             </div>
           </div>
@@ -53,7 +51,7 @@ const About = () => {
               <p className='grid-headtext'>Tech Stack</p>
               <p className='grid-subtext'>
                 I primarily work with <strong>.NET</strong> for backend systems and APIs, paired with{' '}
-                <strong>SQL</strong> for data management.  
+                <strong>SQL</strong> for data management.
                 On the frontend, I enjoy developing with <strong>React</strong> and{' '}
                 <strong>TypeScript</strong>, creating modern and responsive UIs.
                 <br />

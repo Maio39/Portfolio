@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const MaiErpDetails = () => {
+    const { t } = useTranslation();
     const [activeFeature, setActiveFeature] = useState(0);
 
     const features = [
@@ -34,10 +36,9 @@ const MaiErpDetails = () => {
             <div className='relative mb-12'>
                 <div className='absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl'></div>
                 <div className='relative'>
-                    <p className='head-text mb-4'>MaiERP – Your Custom ERP Solution</p>
+                    <p className='head-text mb-4'>{t('maierp.hero_title')}</p>
                     <p className='text-xl text-white-600 max-w-3xl'>
-                        Not a standard software, but <span className='text-white font-semibold'>the perfect solution</span> for your business.
-                        From logistics to production, from inventory to sales – everything in one place.
+                        {t('maierp.hero_desc')}
                     </p>
                 </div>
             </div>
@@ -56,15 +57,15 @@ const MaiErpDetails = () => {
             <div className='grid md:grid-cols-2 grid-cols-1 gap-8 mb-12'>
                 {/* Features Section */}
                 <div className='bg-black-200 border border-black-300 rounded-2xl p-6'>
-                    <h3 className='text-2xl font-bold text-white mb-6'>Why Choose MaiERP?</h3>
+                    <h3 className='text-2xl font-bold text-white mb-6'>{t('maierp.why_choose')}</h3>
                     <div className='space-y-4'>
                         {features.map((feature, index) => (
                             <div
                                 key={index}
                                 onClick={() => setActiveFeature(index)}
                                 className={`p-4 rounded-xl cursor-pointer transition-all duration-300 ${activeFeature === index
-                                        ? 'bg-gradient-to-r ' + feature.color + ' shadow-lg scale-105'
-                                        : 'bg-black-300 hover:bg-black-100'
+                                    ? 'bg-gradient-to-r ' + feature.color + ' shadow-lg scale-105'
+                                    : 'bg-black-300 hover:bg-black-100'
                                     }`}
                             >
                                 <div className='flex items-start gap-4'>
@@ -87,17 +88,17 @@ const MaiErpDetails = () => {
 
                 {/* CTA Section */}
                 <div className='bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-center flex flex-col justify-center'>
-                    <h3 className='text-2xl font-bold text-white mb-3'>Ready to Transform Your Business?</h3>
-                    <p className='text-white/90 mb-6'>Book your free consultation and discover how MaiERP can transform your business.</p>
+                    <h3 className='text-2xl font-bold text-white mb-3'>{t('maierp.ready_transform')}</h3>
+                    <p className='text-white/90 mb-6'>{t('maierp.book_consultation')}</p>
                     <a href="#contact" className='bg-white text-purple-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg inline-block'>
-                        Contact Me
+                        {t('maierp.contact_me')}
                     </a>
                 </div>
             </div>
 
             {/* 🔹 BENEFITS SECTION */}
             <div className='bg-black-200 border border-black-300 rounded-2xl p-8 mb-12'>
-                <h3 className='text-2xl font-bold text-white mb-8 text-center'>Real Business Impact</h3>
+                <h3 className='text-2xl font-bold text-white mb-8 text-center'>{t('maierp.real_impact')}</h3>
                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-6'>
                     {benefits.map((benefit, index) => (
                         <div key={index} className='text-center'>
@@ -112,7 +113,7 @@ const MaiErpDetails = () => {
 
             {/* 🔹 PROCESS SECTION */}
             <div className='bg-black-200 border border-black-300 rounded-2xl p-8 mb-12'>
-                <h3 className='text-2xl font-bold text-white mb-8 text-center'>How It Works</h3>
+                <h3 className='text-2xl font-bold text-white mb-8 text-center'>{t('maierp.how_it_works')}</h3>
                 <div className='grid md:grid-cols-4 gap-6'>
                     {[
                         { num: "01", title: "Analysis", desc: "In-depth study of your company’s structure and workflow." },
@@ -138,7 +139,7 @@ const MaiErpDetails = () => {
 
             {/* 🔹 INDUSTRIES SECTION */}
             <div className='mb-12'>
-                <h3 className='text-2xl font-bold text-white mb-8 text-center'>Industries We Serve</h3>
+                <h3 className='text-2xl font-bold text-white mb-8 text-center'>{t('maierp.industries_serve')}</h3>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                     {industries.map((industry, index) => (
                         <div key={index} className='bg-black-200 border border-black-300 rounded-xl p-6 text-center hover:border-purple-500 transition-all duration-300 hover:scale-105 cursor-pointer'>
@@ -151,10 +152,9 @@ const MaiErpDetails = () => {
 
             {/* 🔹 TECHNOLOGY STACK */}
             <div className='bg-black-200 border border-black-300 rounded-2xl p-8 text-center mb-12'>
-                <h3 className='text-2xl font-bold text-white mb-4'>Built with Cutting-Edge Technologies</h3>
+                <h3 className='text-2xl font-bold text-white mb-4'>{t('maierp.tech_stack')}</h3>
                 <p className='text-white-700 max-w-2xl mx-auto mb-8'>
-                    MaiERP combines modern web technologies and proven architectures
-                    to deliver speed, reliability, and seamless scalability.
+                    {t('maierp.tech_desc')}
                 </p>
                 <div className='flex flex-wrap justify-center gap-6 text-5xl'>
                     <span title=".NET">💠</span>
@@ -167,15 +167,12 @@ const MaiErpDetails = () => {
 
             {/* 🔹 ABOUT SECTION */}
             <div className='bg-black-200 border border-black-300 rounded-2xl p-8 text-center'>
-                <h3 className='text-2xl font-bold text-white mb-4'>About MaiERP</h3>
+                <h3 className='text-2xl font-bold text-white mb-4'>{t('maierp.about_title')}</h3>
                 <p className='text-white-700 max-w-2xl mx-auto mb-4'>
-                    MaiERP is a fully customizable ERP platform designed and developed by
-                    <span className='text-white font-semibold'> Marco Maier</span>,
-                    a full-stack developer specialized in digital transformation for small and medium businesses.
-                    Each feature is engineered to simplify processes, reduce costs, and boost operational performance.
+                    {t('maierp.about_desc')}
                 </p>
                 <a href="#about" className='text-purple-500 hover:text-purple-300 font-semibold underline'>
-                    About →
+                    {t('maierp.about_link')} →
                 </a>
             </div>
         </div>

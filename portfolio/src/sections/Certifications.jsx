@@ -7,7 +7,10 @@ import DemoComputer from '../components/DemoComputer';
 
 const projectCount = myCertifications.length;
 
+import { useTranslation } from 'react-i18next';
+
 const Certifications = () => {
+    const { t } = useTranslation();
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
     const currentProject = myCertifications[selectedProjectIndex];
@@ -25,7 +28,7 @@ const Certifications = () => {
 
     return (
         <section className='c-space my-20'>
-            <p className='head-text'>My Certifications</p>
+            <p className='head-text'>{t('certifications.title')}</p>
             <div className='grid xl:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
                 <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200'>
                     <div className='absolute top-0 right-0'>
@@ -48,7 +51,7 @@ const Certifications = () => {
                             ))}
                         </div>
                         <a className='flex items-center gap-2 cursor-pointer text-white-600' href={currentProject.href} target='_blank' rel='noreferrer'>
-                            <p>Show Credential</p>
+                            <p>{t('certifications.show_credential')}</p>
                             <img src='assets/arrow-up.png' className='w-3 h-3' alt='arrow' />
                         </a>
                     </div>

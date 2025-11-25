@@ -1,0 +1,61 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Projects",
+        "about": "About",
+        "work": "Work",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Hi, I am Marco",
+        "tagline": "This is My Portfolio",
+        "cta": "Let's work together"
+    },
+    "about": {
+        "mainTitle": "About Me",
+        "mainDesc": "A passionate Full Stack Developer specialized in building custom ERP systems and digital solutions to help small and medium-sized companies streamline operations and grow through technology.",
+        "profile": {
+            "title": "Hi, I'm Marco",
+            "desc": "I'm a Software Developer with over 3 years of experience in the tech industry. I focus on designing and developing tailored digital systems — from ERP management platforms to smart business tools — helping companies modernize and automate their workflow."
+        },
+        "contact": "Contact Me"
+    },
+    "projects": {
+        "title": "My Projects",
+        "view_details": "View Details"
+    },
+    "certifications": {
+        "title": "My Certifications",
+        "show_credential": "Show Credential"
+    },
+    "work": {
+        "title": "Work Experience"
+    },
+    "contact": {
+        "title": "Contact Me",
+        "name": "Full Name",
+        "email": "Email Address",
+        "message": "Your Message",
+        "send": "Send Message",
+        "sending": "Sending..."
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    },
+    "maierp": {
+        "hero_title": "MaiERP – Your Custom ERP Solution",
+        "hero_desc": "Not a standard software, but the perfect solution for your business. From logistics to production, from inventory to sales – everything in one place.",
+        "why_choose": "Why Choose MaiERP?",
+        "ready_transform": "Ready to Transform Your Business?",
+        "book_consultation": "Book your free consultation and discover how MaiERP can transform your business.",
+        "contact_me": "Contact Me",
+        "real_impact": "Real Business Impact",
+        "how_it_works": "How It Works",
+        "industries_serve": "Industries We Serve",
+        "tech_stack": "Built with Cutting-Edge Technologies",
+        "tech_desc": "MaiERP combines modern web technologies and proven architectures to deliver speed, reliability, and seamless scalability.",
+        "about_title": "About MaiERP",
+        "about_desc": "MaiERP is a fully customizable ERP platform designed and developed by Marco Maier, a full-stack developer specialized in digital transformation for small and medium businesses. Each feature is engineered to simplify processes, reduce costs, and boost operational performance.",
+        "about_link": "About"
+    }
+}

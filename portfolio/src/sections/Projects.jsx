@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { portfolioProjects } from '../constants';
 import ProjectDetail from '../components/ProjectDetail';
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
+    const { t } = useTranslation();
     const [selectedProject, setSelectedProject] = useState(null);
 
     return (
         <section className='c-space my-20' id='projects'>
-            <p className='head-text'>My Projects</p>
+            <p className='head-text'>{t('projects.title')}</p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12'>
                 {portfolioProjects.map((project) => (
@@ -32,7 +34,7 @@ const Projects = () => {
 
                             <div className='absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
                                 <span className='text-white font-semibold px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20'>
-                                    View Details
+                                    {t('projects.view_details')}
                                 </span>
                             </div>
                         </div>
