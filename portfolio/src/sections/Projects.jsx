@@ -7,14 +7,23 @@ const Projects = () => {
     const { t } = useTranslation();
     const [selectedProject, setSelectedProject] = useState(null);
 
+    // Get translated work experiences from i18n
+    const translatedProjects = t('projects.items', { returnObjects: true });
+
+    // Merge translated text with technical data from constants
+    const projects = portfolioProjects.map((project, index) => ({
+        ...project,
+        ...translatedProjects[index]
+    }));
+
     return (
         <section className='c-space my-20' id='projects'>
             <p className='head-text'>{t('projects.title')}</p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12'>
-                {portfolioProjects.map((project) => (
+                {projects.map((project, index) => (
                     <div
-                        key={project.id}
+                        key={index}
                         className='bg-black-200 border border-black-300 rounded-2xl p-5 hover:border-white/20 transition-all duration-300 hover:shadow-xl group cursor-pointer flex flex-col h-full'
                         onClick={() => setSelectedProject(project)}
                     >

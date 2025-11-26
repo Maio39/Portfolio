@@ -31,9 +31,9 @@ const About = () => {
               className='w-full sm:h-[276px] h-fit object-contain'
             />
             <div>
-              <p className='grid-headtext'>{t('profile.title')}</p>
+              <p className='grid-headtext'>{t('about.profile.title')}</p>
               <p className='grid-subtext'>
-                {t('profile.desc')}
+                {t('about.profile.desc')}
               </p>
             </div>
           </div>
@@ -48,14 +48,9 @@ const About = () => {
               className='w-full sm:h-[276px] h-fit object-contain'
             />
             <div>
-              <p className='grid-headtext'>Tech Stack</p>
+              <p className='grid-headtext'>{t('about.techStack.title')}</p>
               <p className='grid-subtext'>
-                I primarily work with <strong>.NET</strong> for backend systems and APIs, paired with{' '}
-                <strong>SQL</strong> for data management.
-                On the frontend, I enjoy developing with <strong>React</strong> and{' '}
-                <strong>TypeScript</strong>, creating modern and responsive UIs.
-                <br />
-                I also have experience with <strong>Azure Cloud</strong> and <strong>Cybersecurity</strong> best practices.
+                {t('about.techStack.desc')}
               </p>
             </div>
           </div>
@@ -77,13 +72,12 @@ const About = () => {
               />
             </div>
             <div>
-              <p className='grid-headtext'>I work remotely worldwide</p>
+              <p className='grid-headtext'>{t('about.remote.title')}</p>
               <p className='grid-subtext'>
-                Based in Italy, I collaborate remotely with clients from different industries and
-                time zones — offering tailored digital solutions for every business need.
+                {t('about.remote.desc')}
               </p>
               <a href='#contact' className='w-fit'>
-                <Button name='Contact Me' isBeam containerClass='w-full mt-10' />
+                <Button name={t('about.contact')} isBeam containerClass='w-full mt-10' />
               </a>
             </div>
           </div>
@@ -98,11 +92,9 @@ const About = () => {
               className='w-full sm:h-[266px] h-fit object-contain'
             />
             <div>
-              <p className='grid-headtext'>My Passion for Coding</p>
+              <p className='grid-headtext'>{t('about.passion.title')}</p>
               <p className='grid-subtext'>
-                I love transforming complex business problems into clean, efficient, and scalable
-                software solutions. Coding for me is not just a job — it's a way to bring real value
-                to companies and people through technology.
+                {t('about.passion.desc')}
               </p>
             </div>
           </div>
@@ -117,7 +109,7 @@ const About = () => {
               className='w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top'
             />
             <div className='space-y-2'>
-              <p className='grid-subtext text-center'>Contact Me</p>
+              <p className='grid-subtext text-center'>{t('about.contactGrid')}</p>
               <div className='copy-container' onClick={handleCopy}>
                 <img
                   src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'}

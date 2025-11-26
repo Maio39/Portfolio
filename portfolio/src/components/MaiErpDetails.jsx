@@ -6,28 +6,28 @@ const MaiErpDetails = () => {
     const [activeFeature, setActiveFeature] = useState(0);
 
     const features = [
-        { icon: "🎯", title: "Total Customization", desc: "Every module is designed to perfectly match your specific business processes.", color: "from-blue-500 to-cyan-500" },
-        { icon: "⚡", title: "Fast Implementation", desc: "From concept to full operation in just a few weeks.", color: "from-purple-500 to-pink-500" },
-        { icon: "📊", title: "Advanced Analytics", desc: "Smart dashboards for data-driven decisions and real-time insights.", color: "from-orange-500 to-red-500" },
-        { icon: "🔄", title: "Guaranteed Scalability", desc: "Built to grow with your company — without limits.", color: "from-green-500 to-emerald-500" }
+        { icon: "🎯", title: t('maierp.total_costumization'), desc: t('maierp.total_costumization_desc'), color: "from-blue-500 to-cyan-500" },
+        { icon: "⚡", title: t('maierp.fast_implementation'), desc: t('maierp.fast_implementation_desc'), color: "from-purple-500 to-pink-500" },
+        { icon: "📊", title: t('maierp.advanced_analytics'), desc: t('maierp.advanced_analytics_desc'), color: "from-orange-500 to-red-500" },
+        { icon: "🔄", title: t('maierp.guaranteed_scalability'), desc: t('maierp.guaranteed_scalability_desc'), color: "from-green-500 to-emerald-500" }
     ];
 
     const benefits = [
-        { label: "Reduced Operational Costs", value: "40%" },
-        { label: "Productivity Increase", value: "60%" },
-        { label: "Setup Time", value: "2–4 weeks" },
-        { label: "Average ROI", value: "6 months" }
+        { label: t('maierp.benefits_1'), value: "40%" },
+        { label: t('maierp.benefits_2'), value: "60%" },
+        { label: t('maierp.benefits_3'), value: t('maierp.benefits_3_desc') },
+        { label: t('maierp.benefits_4'), value: t('maierp.benefits_4_desc') }
     ];
 
     const industries = [
-        { icon: "🚚", name: "Logistics" },
-        { icon: "🏭", name: "Manufacturing" },
-        { icon: "📦", name: "E-commerce" },
-        { icon: "🏪", name: "Retail" },
-        { icon: "🏗️", name: "Construction" },
-        { icon: "💊", name: "Pharmaceutical" },
-        { icon: "🍽️", name: "Food & Beverage" },
-        { icon: "⚙️", name: "Industrial Automation" }
+        { icon: "🚚", name: t('maierp.logistics') },
+        { icon: "🏭", name: t('maierp.manufacturing') },
+        { icon: "📦", name: t('maierp.ecommerce') },
+        { icon: "🏪", name: t('maierp.retail') },
+        { icon: "🏗️", name: t('maierp.construction') },
+        { icon: "💊", name: t('maierp.pharmaceutical') },
+        { icon: "🍽️", name: t('maierp.food_beverage') },
+        { icon: "⚙️", name: t('maierp.industrial_automation') }
     ];
 
     return (
@@ -116,10 +116,10 @@ const MaiErpDetails = () => {
                 <h3 className='text-2xl font-bold text-white mb-8 text-center'>{t('maierp.how_it_works')}</h3>
                 <div className='grid md:grid-cols-4 gap-6'>
                     {[
-                        { num: "01", title: "Analysis", desc: "In-depth study of your company’s structure and workflow." },
-                        { num: "02", title: "Design", desc: "Tailored architecture built around your real business needs." },
-                        { num: "03", title: "Development", desc: "Fast implementation, testing and refinement." },
-                        { num: "04", title: "Deployment", desc: "Training, onboarding and continuous support." }
+                        { num: "01", title: t('maierp.analysis'), desc: t('maierp.analysis_desc') },
+                        { num: "02", title: t('maierp.design'), desc: t('maierp.design_desc') },
+                        { num: "03", title: t('maierp.development'), desc: t('maierp.development_desc') },
+                        { num: "04", title: t('maierp.deployment'), desc: t('maierp.deployment_desc') }
                     ].map((step, index) => (
                         <div key={index} className='relative'>
                             <div className='flex flex-col items-center text-center'>

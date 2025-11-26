@@ -18,34 +18,131 @@
             "title": "Ciao, sono Marco",
             "desc": "Sono uno sviluppatore software con oltre 3 anni di esperienza nel settore tecnologico. Mi concentro sulla progettazione e lo sviluppo di sistemi digitali su misura — dalle piattaforme di gestione ERP agli strumenti aziendali intelligenti — aiutando le aziende a modernizzare e automatizzare il loro flusso di lavoro."
         },
-        "contact": "Contattami"
+        "techStack": {
+            "title": "Stack Tecnologico",
+            "desc": "Lavoro principalmente con .NET per sistemi backend e API, abbinato a SQL per la gestione dei dati. Sul frontend, mi piace sviluppare con React e TypeScript, creando UI moderne e responsive. Ho anche esperienza con Azure Cloud e le migliori pratiche di Cybersecurity."
+        },
+        "remote": {
+            "title": "Lavoro da remoto in tutto il mondo",
+            "desc": "Con sede in Italia, collaboro da remoto con clienti di diversi settori e fusi orari — offrendo soluzioni digitali su misura per ogni esigenza aziendale."
+        },
+        "passion": {
+            "title": "La Mia Passione per il Coding",
+            "desc": "Amo trasformare problemi aziendali complessi in soluzioni software pulite, efficienti e scalabili. Per me il coding non è solo un lavoro — è un modo per portare valore reale alle aziende e alle persone attraverso la tecnologia."
+        },
+        "contact": "Contattami",
+        "contactGrid": "Contattami"
     },
     "projects": {
         "title": "I Miei Progetti",
-        "view_details": "Vedi Dettagli"
+        "view_details": "Vedi Dettagli",
+        "items": [
+            {
+                "title": "MaiERP",
+                "desc": "Una soluzione ERP completamente personalizzabile progettata per le piccole e medie imprese.",
+                "subdesc": "Da logistica alla produzione, da inventario alle vendite – tutto in un posto.",
+                "tags": [
+                    "React",
+                    "C#",
+                    "SQL",
+                    "Azure"
+                ]
+            }
+        ]
     },
     "certifications": {
         "title": "Le Mie Certificazioni",
-        "show_credential": "Vedi Credenziale"
+        "show_credential": "Vedi Credenziale",
+        "items": [
+            {
+                "title": "CyberOps Associate",
+                "desc": "In questo corso, preparati per la certificazione Cisco Certified Cybersecurity Associate e acquisisci le competenze essenziali necessarie per ambiti ruoli di SOC Analyst in tutti i settori.",
+                "subdesc": "Imparerai come i team SOC rilevano e rispondono agli incidenti di sicurezza. Esplorerai anche le complessità dei concetti di sicurezza, monitoraggio, analisi basata su host, analisi delle intrusioni di rete e procedure delle policy di sicurezza. Questo corso si allinea perfettamente con il framework National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce per supportare un linguaggio coerente per l'educazione, la formazione e lo sviluppo della forza lavoro nella cybersecurity."
+            },
+            {
+                "title": "Deep - Cybersecurity Bootcamp",
+                "desc": "Deep è il Cybersecurity Bootcamp powered by Talent Garden. Tra i corsi di formazione blended più innovativi in circolazione, il programma combina la profonda rete digitale del network Talent Garden con l'expertise di cybersecurity della piattaforma di apprendimento Cybint Solution, una Ed-Tech company israeliana specializzata nella sicurezza militare internazionale. 13 intense ma affascinanti settimane di corso ti prepareranno per ruoli entry-level nella cybersecurity, un settore in rapida crescita con stipendi elevati e rapida progressione di carriera.",
+                "subdesc": ""
+            },
+            {
+                "title": "CCNA - Introduction to Networks",
+                "desc": "Costruisci le competenze necessarie per ruoli lavorativi di livello associate come Network Administrator, System Administrator o Network Engineer in questa serie di tre corsi. Ti preparerai anche a sostenere l'esame di certificazione Cisco Certified Network Associate (CCNA), una credenziale riconosciuta nel settore che convalida la tua expertise e apre le porte a interessanti opportunità professionali.",
+                "subdesc": "Inizia qui con CCNA: Introduction to Networks, il primo corso della serie. Dalla comprensione delle architetture e dei protocolli di rete alla padronanza dell'indirizzamento IP e dei fondamenti Ethernet, svilupperai conoscenze fondamentali e costruirai le tue basi di networking. Questo corso include anche laboratori interattivi e scenari del mondo reale per aiutarti ad acquisire esperienza pratica nella costruzione di reti locali (LAN), nell'implementazione di misure di sicurezza di rete e nella configurazione di router e switch."
+            }
+        ]
     },
     "work": {
-        "title": "Esperienza Lavorativa"
+        "title": "Esperienza Lavorativa",
+        "items": [
+            {
+                "name": "Cloudhero",
+                "pos": "Sviluppatore Full-stack",
+                "duration": "2023 - Presente",
+                "title": "Sviluppo progetti personalizzati per clienti terzi da zero, utilizzando una gamma di tecnologie tra cui C#, HTML, CSS, Javascript, SQL, NoSQL, Docker e Kubernetes. Partecipo attivamente alla fase di startup di nuovi progetti, conducendo analisi dei dati per determinare la struttura dati ottimale. Collaboro con team interfunzionali per garantire che le soluzioni tecnologiche siano allineate con gli obiettivi aziendali e soddisfino le esigenze dei clienti."
+            },
+            {
+                "name": "Microsoft Cloud Developer Academy",
+                "pos": "Cloud Developer",
+                "duration": "2022 - 2023",
+                "title": "Questo corso si è basato principalmente sullo sviluppo Asp.Net. Abbiamo poi trattato il linguaggio C#, i database (SQL Server, SQLite, CosmosDB) e il mondo Azure (Azure Portal, Azure DevOps) e infine la pubblicazione di WebApp nel cloud."
+            },
+            {
+                "name": "Talent Garden - Cyber Security Bootcamp",
+                "pos": "Analista di Cyber Security",
+                "duration": "2021 - 2022",
+                "title": "Questo corso si è basato su concetti chiave per imparare linux e i sistemi operativi, conoscere i processi di digital forensics per analizzare le minacce nei dispositivi digitali, eseguire attacchi informatici, pratiche di difesa informatica e valutazione delle vulnerabilità, e infine acquisire familiarità con le ultime tendenze e tecnologie."
+            }
+        ]
     },
     "contact": {
-        "title": "Contattami",
+        "title": "Parliamone",
+        "desc": "Sia che tu voglia costruire un nuovo progetto, migliorare la tua piattaforma esistente o semplicemente dire ciao, sono qui per aiutarti.",
         "name": "Nome Completo",
         "email": "Indirizzo Email",
         "message": "Il Tuo Messaggio",
+        "messagePlaceholder": "Ciao Marco, vorrei parlare di...",
         "send": "Invia Messaggio",
         "sending": "Invio in corso..."
     },
     "footer": {
+        "terms": "Termini e Condizioni",
+        "privacy": "Privacy Policy",
         "rights": "Tutti i diritti riservati."
     },
     "maierp": {
         "hero_title": "MaiERP – La Tua Soluzione ERP Personalizzata",
         "hero_desc": "Non un software standard, ma la soluzione perfetta per il tuo business. Dalla logistica alla produzione, dall'inventario alle vendite – tutto in un unico posto.",
         "why_choose": "Perché Scegliere MaiERP?",
+        "total_costumization": "Personalizzazione Totale",
+        "total_costumization_desc": "Ogni modulo è progettato per perfettamente corrispondere ai tuoi processi aziendali specifici.",
+        "fast_implementation": "Implementazione Rapida",
+        "fast_implementation_desc": "Da concetto a operazione completa in poche settimane.",
+        "advanced_analytics": "Analisi Avanzata",
+        "advanced_analytics_desc": "Dashboard intelligenti per decisioni guidate da dati e intelligenza in tempo reale.",
+        "guaranteed_scalability": "Scalabilità Garantita",
+        "guaranteed_scalability_desc": "Costruito per crescere con la tua azienda — senza limiti.",
+        "benefits_1": "Costi Operativi Ridotti",
+        "benefits_2": "Aumento della Produttività",
+        "benefits_3": "Tempo di Configurazione",
+        "benefits_3_desc": "2–4 settimane",
+        "benefits_4": "Rendimento Medio",
+        "benefits_4_desc": "6 mesi",
+        "analysis": "Analisi",
+        "analysis_desc": "Studio approfondito della struttura e del workflow della tua azienda.",
+        "design": "Progettazione",
+        "design_desc": "Architettura personalizzata intorno alle tue esigenze aziendali.",
+        "development": "Sviluppo",
+        "development_desc": "Implementazione rapida, testing e affinamento.",
+        "deployment": "Implementazione",
+        "deployment_desc": "Formazione, onboarding e supporto continuo.",
+        "logistics": "Logistica",
+        "manufacturing": "Produzione",
+        "ecommerce": "E-commerce",
+        "retail": "Retail",
+        "construction": "Costruzione",
+        "pharmaceutical": "Farmaceutica",
+        "food_beverage": "Cibo & Bevande",
+        "industrial_automation": "Automazione Industriale",
         "ready_transform": "Pronto a Trasformare il Tuo Business?",
         "book_consultation": "Prenota la tua consulenza gratuita e scopri come MaiERP può trasformare la tua azienda.",
         "contact_me": "Contattami",

@@ -4,16 +4,23 @@ import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/DemoComputer';
-
-const projectCount = myCertifications.length;
-
 import { useTranslation } from 'react-i18next';
 
 const Certifications = () => {
     const { t } = useTranslation();
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
-    const currentProject = myCertifications[selectedProjectIndex];
+    // Get translatedcertifications from i18n
+    const translatedCertifications = t('certifications.items', { returnObjects: true });
+
+    // Merge translated text with technical  data from constants
+    const certifications = myCertifications.map((cert, index) => ({
+        ...cert,
+        ...translatedCertifications[index]
+    }));
+
+    const projectCount = certifications.length;
+    const currentProject = certifications[selectedProjectIndex];
 
     const handleNavigation = (direction) => {
         setSelectedProjectIndex((prevIndex) => {
@@ -27,7 +34,7 @@ const Certifications = () => {
     }
 
     return (
-        <section className='c-space my-20'>
+        <section className='c-space my-20' id='certifications'>
             <p className='head-text'>{t('certifications.title')}</p>
             <div className='grid xl:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
                 <div className='flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200'>

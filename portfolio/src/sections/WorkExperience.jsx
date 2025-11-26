@@ -1,16 +1,23 @@
 import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-
 import Developer from '../components/Developer.jsx';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import { workExperiences } from '../constants/index.js';
-
 import { useTranslation } from 'react-i18next';
 
 const WorkExperience = () => {
   const { t } = useTranslation();
   const [animationName, setAnimationName] = useState('idle');
+
+  // Get translated work experiences from i18n
+  const translatedWork = t('work.items', { returnObjects: true });
+
+  // Merge translated text with technical data from constants
+  const experiences = workExperiences.map((work, index) => ({
+    ...work,
+    ...translatedWork[index]
+  }));
 
   return (
     <section className="c-space my-20" id="work">
@@ -33,7 +40,7 @@ const WorkExperience = () => {
 
           <div className="work-content">
             <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item, index) => (
+              {experiences.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => setAnimationName(item.animation.toLowerCase())}

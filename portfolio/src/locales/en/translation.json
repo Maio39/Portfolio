@@ -18,34 +18,131 @@
             "title": "Hi, I'm Marco",
             "desc": "I'm a Software Developer with over 3 years of experience in the tech industry. I focus on designing and developing tailored digital systems — from ERP management platforms to smart business tools — helping companies modernize and automate their workflow."
         },
-        "contact": "Contact Me"
+        "techStack": {
+            "title": "Tech Stack",
+            "desc": "I primarily work with .NET for backend systems and APIs, paired with SQL for data management. On the frontend, I enjoy developing with React and TypeScript, creating modern and responsive UIs. I also have experience with Azure Cloud and Cybersecurity best practices."
+        },
+        "remote": {
+            "title": "I work remotely worldwide",
+            "desc": "Based in Italy, I collaborate remotely with clients from different industries and time zones — offering tailored digital solutions for every business need."
+        },
+        "passion": {
+            "title": "My Passion for Coding",
+            "desc": "I love transforming complex business problems into clean, efficient, and scalable software solutions. Coding for me is not just a job — it's a way to bring real value to companies and people through technology."
+        },
+        "contact": "Contact Me",
+        "contactGrid": "Contact Me"
     },
     "projects": {
         "title": "My Projects",
-        "view_details": "View Details"
+        "view_details": "View Details",
+        "items": [
+            {
+                "title": "MaiERP",
+                "desc": "A fully customizable ERP solution designed for small and medium businesses.",
+                "subdesc": "From logistics to production, from inventory to sales – everything in one place.",
+                "tags": [
+                    "React",
+                    "C#",
+                    "SQL",
+                    "Azure"
+                ]
+            }
+        ]
     },
     "certifications": {
         "title": "My Certifications",
-        "show_credential": "Show Credential"
+        "show_credential": "Show Credential",
+        "items": [
+            {
+                "title": "CyberOps Associate",
+                "desc": "In this course, gear up for the Cisco Certified Cybersecurity Associate Certification and equip yourself with the essential skills needed for coveted SOC Analyst job roles across all industries.",
+                "subdesc": "You will learn how SOC teams detect and respond to security incidents. You will also explore the intricacies of security concepts, monitoring, host-based analysis, network intrusion analysis, and security policy procedures. This course seamlessly aligns with the National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce framework to support consistent language for cybersecurity education, training, and workforce development."
+            },
+            {
+                "title": "Deep - Cybersecurity Bootcamp",
+                "desc": "Deep is the Cybersecurity Bootcamp powered by Talent Garden. Among the most innovative blended training courses around, the program combines the deep digital network of the Talent Garden network with the cybersecurity expertise of the Cybint Solution learning platform, an Israeli Ed-Tech company specializing in international military security. 13 intense but fascinating weeks of coursework will prepare you for entry-level roles in cybersecurity, a fast-growing industry with high salaries and rapid career progression.",
+                "subdesc": ""
+            },
+            {
+                "title": "CCNA - Introduction to Networks",
+                "desc": "Build the skills you need for associate-level job roles like Network Administrator, System Administrator, or Network Engineer in this three-course series. You will also get ready to take the Cisco Certified Network Associate (CCNA) certification exam, an industry-recognized credential that validates your expertise and opens doors to exciting professional opportunities.",
+                "subdesc": "Start here with CCNA: Introduction to Networks, the first course in the series. From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, you'll develop foundational knowledge and build your networking basics. This course also includes interactive labs and real-world scenarios to help you gain practical experience in building local area networks (LANs), implementing network security measures, and configuring routers and switches."
+            }
+        ]
     },
     "work": {
-        "title": "Work Experience"
+        "title": "Work Experience",
+        "items": [
+            {
+                "name": "Cloudhero",
+                "pos": "Full-stack Developer",
+                "duration": "2023 - Present",
+                "title": "I develop custom projects for third-party clients from scratch, using a range of technologies including C#, HTML, CSS, Javascript, SQL, NoSQL, Docker, and Kubernetes. I actively participate in the startup phase of new projects, conducting data analysis to determine the optimal data structure. I collaborate with cross-functional teams to ensure that technology solutions are aligned with business objectives and meet customer needs."
+            },
+            {
+                "name": "Microsoft Cloud Developer Academy",
+                "pos": "Cloud Developer",
+                "duration": "2022 - 2023",
+                "title": "This course was mainly based on Asp.Net development. Then we covered the C# language, databases (SQL Server, SQLite, CosmosDB), and the Azure world (Azure Portal, Azure DevOps) and then publishing WebApps in the cloud."
+            },
+            {
+                "name": "Talent Garden - Cyber Security Bootcamp",
+                "pos": "Cyber Security Analyst",
+                "duration": "2021 - 2022",
+                "title": "This course was based on key concepts to learn about linux and OS, learn about digital forensics processes for analyzing threats in digital devices, perform cyber attacks, cyber defense practices and vulnerability assessment, and finally gain familiarity with the latest trends and technologies."
+            }
+        ]
     },
     "contact": {
-        "title": "Contact Me",
+        "title": "Let's talk",
+        "desc": "Whether you want to build a new project, improve your existing platform, or just say hi, I'm here to help.",
         "name": "Full Name",
         "email": "Email Address",
         "message": "Your Message",
+        "messagePlaceholder": "Hi Marco, I'd like to discuss...",
         "send": "Send Message",
         "sending": "Sending..."
     },
     "footer": {
+        "terms": "Terms & Conditions",
+        "privacy": "Privacy Policy",
         "rights": "All rights reserved."
     },
     "maierp": {
         "hero_title": "MaiERP – Your Custom ERP Solution",
         "hero_desc": "Not a standard software, but the perfect solution for your business. From logistics to production, from inventory to sales – everything in one place.",
         "why_choose": "Why Choose MaiERP?",
+        "total_costumization": "Total Customization",
+        "total_costumization_desc": "Every module is designed to perfectly match your specific business processes.",
+        "fast_implementation": "Fast Implementation",
+        "fast_implementation_desc": "From concept to full operation in just a few weeks.",
+        "advanced_analytics": "Advanced Analytics",
+        "advanced_analytics_desc": "Smart dashboards for data-driven decisions and real-time insights.",
+        "guaranteed_scalability": "Guaranteed Scalability",
+        "guaranteed_scalability_desc": "Built to grow with your company — without limits.",
+        "benefits_1": "Reduced Operational Costs",
+        "benefits_2": "Productivity Increase",
+        "benefits_3": "Setup Time",
+        "benefits_3_desc": "2–4 weeks",
+        "benefits_4": "Average ROI",
+        "benefits_4_desc": "6 months",
+        "analysis": "Analysis",
+        "analysis_desc": "In-depth study of your company’s structure and workflow.",
+        "design": "Design",
+        "design_desc": "Tailored architecture built around your real business needs.",
+        "development": "Development",
+        "development_desc": "Fast implementation, testing and refinement.",
+        "deployment": "Deployment",
+        "deployment_desc": "Training, onboarding and continuous support.",
+        "logistics": "Logistics",
+        "manufacturing": "Manufacturing",
+        "ecommerce": "E-commerce",
+        "retail": "Retail",
+        "construction": "Construction",
+        "pharmaceutical": "Pharmaceutical",
+        "food_beverage": "Food & Beverage",
+        "industrial_automation": "Industrial Automation",
         "ready_transform": "Ready to Transform Your Business?",
         "book_consultation": "Book your free consultation and discover how MaiERP can transform your business.",
         "contact_me": "Contact Me",
