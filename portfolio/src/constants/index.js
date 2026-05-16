@@ -138,6 +138,24 @@ export const portfolioProjects = [
     subdesc: 'From logistics to production, from inventory to sales – everything in one place.',
     img: 'assets/MaiERP.png', // Placeholder, should be updated if there is a specific logo
     tags: ['React', 'C#', 'SQL', 'Azure'],
+  },
+  {
+    id: 'lolloaperipizza',
+    title: 'Lollo Aperipizza',
+    desc: 'Progetto web per un’attività di ristorazione a Cerro Maggiore, specializzata in aperipizza, cocktail e serate evento.',
+    subdesc: 'Ho realizzato il sito con l’obiettivo di valorizzare l’atmosfera informale del locale, rendendo facilmente accessibili menu, informazioni su location e contatti. Il sito è responsive e ottimizzato per la consultazione da mobile, canale principale dei clienti.',
+    img: 'assets/lolloaperipizzaProject.png', // Placeholder, should be updated if there is a specific logo
+    tags: ['React', 'HTML', 'CSS', 'JavaScript'],
+    link: 'https://lolloaperipizza.it',
+  },
+  {
+    id: 'casadelpane',
+    title: 'Casa del Pane',
+    desc: 'Realizzazione di un sito vetrina per un’attività di panificazione.',
+    subdesc: 'L’obiettivo era comunicare i valori artigianali del brand e facilitare il contatto con i clienti, con sezioni dedicate a pane artistico, pasticceria, caffetteria e catering.',
+    img: 'assets/casadelpaneProject.png', // Placeholder, should be updated if there is a specific logo
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://casa-del-pane.vercel.app',
   }
 ];
 

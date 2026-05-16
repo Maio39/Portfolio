@@ -47,6 +47,16 @@
                     "SQL",
                     "Azure"
                 ]
+            },
+            {
+                "title": "Lollo Aperipizza",
+                "desc": "Web project for a restaurant business in Cerro Maggiore, specializing in aperipizza, cocktails, and event nights.",
+                "subdesc": "I created the website with the goal of enhancing the informal atmosphere of the venue, making menus, location info, and contacts easily accessible. The site is responsive and optimized for mobile browsing, the main channel for customers."
+            },
+            {
+                "title": "Casa del Pane",
+                "desc": "Creation of a showcase website for a bakery business.",
+                "subdesc": "The goal was to communicate the brand's artisanal values and facilitate contact with customers, with dedicated sections for artistic bread, pastry, cafeteria, and catering."
             }
         ]
     },

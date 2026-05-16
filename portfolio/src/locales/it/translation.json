@@ -47,6 +47,16 @@
                     "SQL",
                     "Azure"
                 ]
+            },
+            {
+                "title": "Lollo Aperipizza",
+                "desc": "Progetto web per un’attività di ristorazione a Cerro Maggiore, specializzata in aperipizza, cocktail e serate evento.",
+                "subdesc": "Ho realizzato il sito con l’obiettivo di valorizzare l’atmosfera informale del locale, rendendo facilmente accessibili menu, informazioni su location e contatti. Il sito è responsive e ottimizzato per la consultazione da mobile, canale principale dei clienti."
+            },
+            {
+                "title": "Casa del Pane",
+                "desc": "Realizzazione di un sito vetrina per un’attività di panificazione.",
+                "subdesc": "L’obiettivo era comunicare i valori artigianali del brand e facilitare il contatto con i clienti, con sezioni dedicate a pane artistico, pasticceria, caffetteria e catering."
             }
         ]
     },
